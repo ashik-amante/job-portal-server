@@ -65,13 +65,14 @@ async function run() {
 
             // fokira way
             for(const application of result){
-                console.log(application.job_id);
-                const query1 = {_id : new ObjectId(application.job_id)}
+                console.log(application.jb_id);
+                const query1 = {_id : new ObjectId(application.jb_id)}
                 const job = await jobsCollection.findOne(query1)
                 if(job){
                     application.title  = job.title;
                     application.company = job.company;
-                    application.company_logo = job.company_logo
+                    application.company_logo = job.company_logo;
+                    application.location = job.location
                 }
             }
 
